@@ -68,4 +68,25 @@ def reiniciar():
         var.set("")
     resultado_var.set("")
     analisis_var.set("")
-    
+def guardar_resultado(nombre, correo, total, analisis):
+    try:
+        directorio = os.path.expanduser("~/Documentos")
+        os.makedirs(directorio, exist_ok=True)
+        archivo_path = os.path.join(directorio, "huella_carbono.txt")
+        with open(archivo_path, "w", encoding="utf-8") as archivo:
+            archivo.write("Cálculo de Huella de Carbono\n")
+            archivo.write(f"Nombre: {nombre}\nCorreo: {correo}\n\n")
+            for i in range(len(categorias)):
+                archivo.write(f"{categorias[i]}: {matriz[i][0]} -> {matriz[i][2]:.2f} kg CO₂\n")
+            archivo.write(f"\nHuella total: {total:.2f} kg CO₂\n")
+            archivo.write(f"\nAnálisis:\n{analisis}\n")
+        messagebox.showinfo("Guardado", f"Resultado guardado correctamente en:\n{archivo_path}")
+    except:
+        messagebox.showerror("Error", "No se pudo guardar el archivo.")
+
+# Interfaz gráfica
+ventana = tk.Tk()
+ventana.title("Calculadora de Huella de Carbono")
+ventana.configure(bg="#e6f2ff")
+ventana.geometry("580x620")
+ventana.resizable(False, False)
