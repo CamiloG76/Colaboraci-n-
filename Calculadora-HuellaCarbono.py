@@ -22,3 +22,39 @@ categorias = [
     "Ropa comprada (unidades/mes)",
     "Residuos generados (kg/mes)"
 ]
+
+def calcular():
+    try:
+        total = 0
+        for i in range(len(matriz)):
+            actividad = float(entradas[i].get())
+            matriz[i][0] = actividad
+            matriz[i][2] = actividad * matriz[i][1]
+            total += matriz[i][2]
+            resultado_categorias[i].set(f"{matriz[i][2]:.2f} kg CO₂")
+
+        resultado_var.set(f"🌍 Huella total estimada: {total:.2f} kg CO₂ / mes")
+
+        # Análisis del resultado
+        if total < 100:
+            analisis = "Tu huella es bastante baja. ¡Sigue así!"
+        elif total < 300:
+            analisis = "Huella moderada. Puedes reducir el uso del automóvil y el consumo de carne."
+        else:
+            analisis = "Huella alta. Considera usar transporte público, reducir carne y reciclar más."
+
+        # Compensaciones
+        arboles = total / 21  # 1 árbol ≈ 21 kg CO₂/año
+        reciclaje = total / 1.5  # 1.5 kg CO₂ ahorrado por 1 kg reciclado
+
+        analisis_final = (
+            f"{analisis}\n\n"
+            f"🌳 Árboles necesarios para compensar: {arboles:.1f} (anualmente)\n"
+            f"♻️ Reciclaje mensual necesario: {reciclaje:.1f} kg"
+        )
+        analisis_var.set(analisis_final)
+
+        guardar_resultado(nombre_entry.get(), correo_entry.get(), total, analisis_final)
+
+    except ValueError:
+        messagebox.showerror("Error", "Por favor ingresa solo números válidos.")
