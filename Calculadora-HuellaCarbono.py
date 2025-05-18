@@ -58,3 +58,14 @@ def calcular():
 
     except ValueError:
         messagebox.showerror("Error", "Por favor ingresa solo números válidos.")
+
+def reiniciar():
+    nombre_entry.delete(0, tk.END)
+    correo_entry.delete(0, tk.END)
+    for entrada in entradas:
+        entrada.delete(0, tk.END)
+    for var in resultado_categorias:
+        var.set("")
+    resultado_var.set("")
+    analisis_var.set("")
+    
