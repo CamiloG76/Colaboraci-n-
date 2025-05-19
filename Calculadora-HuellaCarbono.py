@@ -122,3 +122,15 @@ intro_text = (
     "Además, te muestra cuánto necesitas compensar."
 )
 tk.Label(frame, text=intro_text, font=("Segoe UI", 10), bg="#e6f2ff").pack()
+
+# Datos personales
+datos_frame = tk.Frame(frame, bg="#e6f2ff")
+datos_frame.pack(pady=10)
+
+tk.Label(datos_frame, text="Nombre:", bg="#e6f2ff", font=("Segoe UI", 10)).grid(row=0, column=0, sticky="e", padx=5)
+nombre_entry = tk.Entry(datos_frame, font=("Segoe UI", 10))
+nombre_entry.grid(row=0, column=1)
+
+tk.Label(datos_frame, text="Correo:", bg="#e6f2ff", font=("Segoe UI", 10)).grid(row=1, column=0, sticky="e", padx=5, pady=5)
+correo_entry = tk.Entry(datos_frame, font=("Segoe UI", 10))
+correo_entry.grid(row=1, column=1)
