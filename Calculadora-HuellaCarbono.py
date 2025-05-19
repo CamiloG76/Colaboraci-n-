@@ -90,3 +90,15 @@ ventana.title("Calculadora de Huella de Carbono")
 ventana.configure(bg="#e6f2ff")
 ventana.geometry("580x620")
 ventana.resizable(False, False)
+
+frame = tk.Frame(ventana, bg="#e6f2ff", padx=20, pady=20)
+frame.pack(expand=True)
+
+tk.Label(frame, text="🌱 Calculadora de Huella de Carbono 🌱", font=("Segoe UI", 18, "bold"), bg="#e6f2ff", fg="#004d40").pack(pady=(0, 10))
+
+intro_text = (
+    "Esta calculadora estima cuánto CO₂ generas por mes\n"
+    "según tu consumo eléctrico, transporte, alimentación y hábitos.\n"
+    "Además, te muestra cuánto necesitas compensar."
+)
+tk.Label(frame, text=intro_text, font=("Segoe UI", 10), bg="#e6f2ff").pack()
