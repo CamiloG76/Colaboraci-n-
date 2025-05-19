@@ -23,6 +23,7 @@ categorias = [
 
 def obtener_actividad(i):
     return float(entradas[i].get())
+<<<<<<< HEAD
 
 def calcular_emision(i, actividad):
     return actividad * factores[i]
@@ -105,3 +106,25 @@ def guardar_resultado(nombre, correo, total, analisis):
         messagebox.showerror("Error", "No se pudo guardar el archivo.")
 
 # Interfaz grafica
+=======
+
+def calcular_emision(i, actividad):
+    return actividad * factores[i]
+
+def formatear_resultado(i):
+    return f"{resultados[i]:.2f} kg CO₂"
+
+def obtener_analisis(total):
+    if total < 100:
+        return "Tu huella es bastante baja. ¡Sigue así!"
+    elif total < 300:
+        return "Huella moderada. Puedes reducir el uso del automóvil y el consumo de carne."
+    else:
+        return "Huella alta. Considera usar transporte público, reducir carne y reciclar más."
+
+def calcular_compensaciones(total):
+    arboles = total / 21
+    reciclaje = total / 1.5
+    return arboles, reciclaje
+
+>>>>>>> 7cd254d9fd297c9c92669658bd46dee0fe93487c
