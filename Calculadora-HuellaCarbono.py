@@ -103,3 +103,5 @@ def guardar_resultado(nombre, correo, total, analisis):
         messagebox.showinfo("Guardado", f"Resultado guardado correctamente en:\n{archivo_path}")
     except:
         messagebox.showerror("Error", "No se pudo guardar el archivo.")
+
+# Interfaz grafica
