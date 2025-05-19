@@ -110,3 +110,15 @@ datos_frame.pack(pady=10)
 tk.Label(datos_frame, text="Nombre:", bg="#e6f2ff", font=("Segoe UI", 10)).grid(row=0, column=0, sticky="e", padx=5)
 nombre_entry = tk.Entry(datos_frame, font=("Segoe UI", 10))
 nombre_entry.grid(row=0, column=1)
+
+tk.Label(datos_frame, text="Correo:", bg="#e6f2ff", font=("Segoe UI", 10)).grid(row=1, column=0, sticky="e", padx=5, pady=5)
+correo_entry = tk.Entry(datos_frame, font=("Segoe UI", 10))
+correo_entry.grid(row=1, column=1)
+
+tk.Label(frame, text="Introduce tus consumos mensuales:", font=("Segoe UI", 11, "bold"), bg="#e6f2ff").pack(pady=(10, 5))
+
+entradas = []
+resultado_categorias = [tk.StringVar() for _ in categorias]
+
+consumo_frame = tk.Frame(frame, bg="#e6f2ff")
+consumo_frame.pack()
