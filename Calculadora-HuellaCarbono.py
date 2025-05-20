@@ -142,3 +142,26 @@ resultado_categorias = [tk.StringVar() for _ in categorias]
 
 consumo_frame = tk.Frame(frame, bg="#e6f2ff")
 consumo_frame.pack()
+
+for i, categoria in enumerate(categorias):
+    tk.Label(consumo_frame, text=categoria, bg="#e6f2ff", font=("Segoe UI", 9)).grid(row=i, column=0, sticky="w", pady=2)
+    entrada = tk.Entry(consumo_frame, font=("Segoe UI", 9), width=10)
+    entrada.grid(row=i, column=1, pady=2)
+    entradas.append(entrada)
+    tk.Label(consumo_frame, textvariable=resultado_categorias[i], bg="#e6f2ff", fg="blue", font=("Segoe UI", 9)).grid(row=i, column=2, sticky="w", padx=10)
+
+# Botones
+botones_frame = tk.Frame(frame, bg="#e6f2ff")
+botones_frame.pack(pady=15)
+
+tk.Button(botones_frame, text="Calcular", command=calcular, bg="#a5d6a7", font=("Segoe UI", 10), width=12).grid(row=0, column=0, padx=10)
+tk.Button(botones_frame, text="Reiniciar", command=reiniciar, bg="#eeeeee", font=("Segoe UI", 10), width=12).grid(row=0, column=1, padx=10)
+
+# Resultado
+resultado_var = tk.StringVar()
+tk.Label(frame, textvariable=resultado_var, font=("Segoe UI", 11, "bold"), fg="#00695c", bg="#e6f2ff").pack()
+
+analisis_var = tk.StringVar()
+tk.Label(frame, textvariable=analisis_var, wraplength=520, justify="left", font=("Segoe UI", 10), bg="#e6f2ff", fg="#003366").pack(pady=10)
+
+ventana.mainloop()
